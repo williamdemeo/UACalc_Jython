@@ -1,6 +1,6 @@
 #!/bin/sh
 echo
-echo 'Starting Jython with UACalc dependencies... please be patient...'
+echo 'Starting Jython with UACalc dependencies.  Please be patient...'
 echo
 cd $HOME/UACalc_Jython/Jython
 

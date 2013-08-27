@@ -84,7 +84,7 @@ if [ -h "$uacalc_fqname" ]; then
     read -p 'Rename it? [Y/n]' -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-	mv $uacalc_fqname $uacalc_fqname$(date +'%Y%m%d:%H:%m')
+	mv $uacalc_fqname $uacalc_fqname'_'$(date +'%Y%m%d:%H:%m')
     else
 	echo "Aborting setup. (Please rename "$uacalc_fqname" and try again.)"
 	exit
@@ -93,13 +93,15 @@ fi
 ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
 
 echo
-echo '...UACalc_Jython Setup finished!!!'
-echo 
-echo 'To run the Jython interpreter CL interface to uacalc, enter'
 echo
-echo '    '$uacalc_name
+echo '   ...UACalc_Jython Setup finished!!!'
 echo
-echo 'a the prompt in a terminal window.'
+echo '   To run the Jython interpreter CL interface to uacalc, enter'
 echo
-echo 'Look at the file AlgebraConstructionExample.py for some examples'
-echo 'of Jython/UACalc code you can enter at the Jython >>> prompt.'
+echo '      '$uacalc_name
+echo
+echo '   a the prompt in a terminal window.'
+echo
+echo '   Look at the file AlgebraConstructionExample.py for some examples'
+echo '   of Jython/UACalc code you can enter at the Jython >>> prompt.'
+echo
