@@ -21,7 +21,7 @@ if [ -d $uacalc_jython_path/ ]; then
 	exit
     fi
 fi
-sudo apt-get install -y git-core curl
+sudo apt-get install -y git-core curl zip
 # wget http://uacalc.org/uacalc.jar  
 # (for now we're including uacalc.jar in the git repo)
 #git clone https://github.com/williamdemeo/UACalc_Jython.git
@@ -91,16 +91,20 @@ if [ -h "$uacalc_fqname" ]; then
     fi
 fi
 ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
-
 echo
 echo
 echo '   ...UACalc_Jython Setup finished!!!'
 echo
 echo '   To run the Jython interpreter CL interface to uacalc, enter'
 echo
-echo '      '$uacalc_name
+echo '       '$uacalc_name
 echo
 echo '   a the prompt in a terminal window.'
+echo
+echo '   If you get command not found, enter the fully qualified'
+echo '   name of the startup script:'
+echo 
+echo '       '$uacalc_fqname
 echo
 echo '   Look at the file AlgebraConstructionExample.py for some examples'
 echo '   of Jython/UACalc code you can enter at the Jython >>> prompt.'
