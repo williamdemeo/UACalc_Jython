@@ -1,0 +1,5 @@
+#!/bin/sh
+cd $HOME/UACalc_Jython/Jython
+
+exec java -jar jython.jar -i uacalc.py
+

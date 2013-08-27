@@ -3,8 +3,7 @@
 # William DeMeo <williamdemeo@gmail.com>
 # Date: 2013.08.26
 
-cd $HOME
-if [ -d ./UACalc]; then
+if [ -d ./UACalc_Jython/ ]; then
     echo 'ERROR: Directory UACalc already exists...'
     echo 'ERROR:    ...please rename it and run setup.sh again.'
     exit
@@ -49,7 +48,8 @@ if [[ "$_java" ]]; then
 	fi
     fi
 fi
-cd ~/UACalc/Jython
+cd ./UACalc_Jython/Jython
+
 echo
 echo '...UACalc_Jython Setup finished!!!'
 echo 
