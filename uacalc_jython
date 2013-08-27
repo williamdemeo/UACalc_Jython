@@ -1,4 +1,7 @@
 #!/bin/sh
+echo
+echo 'Starting Jython with UACalc dependencies... please be patient...'
+echo
 cd $HOME/UACalc_Jython/Jython
 
 exec java -jar jython.jar -i uacalc.py
