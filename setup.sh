@@ -3,16 +3,18 @@
 # William DeMeo <williamdemeo@gmail.com>
 # Date: 2013.08.26
 
+cd $HOME
 if [ -d ./UACalc_Jython/ ]; then
-    echo 'ERROR: Directory UACalc already exists...'
+    echo 'ERROR: Directory UACalc_Jython already exists...'
     echo 'ERROR:    ...please rename it and run setup.sh again.'
     exit
 fi
 sudo apt-get install -y git-core curl
 # wget http://uacalc.org/uacalc.jar  
 # (for now we're including uacalc.jar in the git repo)
-git clone https://github.com/williamdemeo/UACalc_Jython.git
-
+#git clone https://github.com/williamdemeo/UACalc_Jython.git
+wget https://github.com/williamdemeo/UACalc_Jython/archive/master.zip
+unzip master.zip
 if type -p java; then
     echo 'found java executable in PATH'
     _java=java
@@ -48,13 +50,21 @@ if [[ "$_java" ]]; then
 	fi
     fi
 fi
-cd ./UACalc_Jython/Jython
+mv UACalc_Jython-master UACalc_Jython
+if [ ! -d $HOME/bin/ ]; then
+    mkdir -v $HOME/bin
+fi
+echo 'Adding a link to startup script uacalc_jython in $HOME/bin'
+ln -s UACalc_Jython/uacalc_jython $HOME/bin/uacalc_jython
 
 echo
 echo '...UACalc_Jython Setup finished!!!'
 echo 
-echo 'Now, from within the ~/UACalc/Jython directory,'
-echo 'Start Jython with the following command:'
+echo 'To run the Jython interpreter CL interface to uacalc, enter'
+echo ' uacalc_jython '
+echo 'a the shell prompt.'
+echo
+echo 'If for some reason that fails, try to start Jython with:'
 echo
 echo '         java -jar jython.jar -i uacalc.py'
 echo
