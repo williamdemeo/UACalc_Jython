@@ -22,6 +22,8 @@ syntax is more convenient than using the gui interface.
 This repository contains files that help configure a computer for
 running the Jython interpreter, and for setting up dependencies so 
 that you can work with UACalc classes from the Jython command line.
+(Note: it is not necessary to first install Java or run the gui version
+of UACalc in order to use the command line version provided by this repository.)
 
 Installation
 ------------
