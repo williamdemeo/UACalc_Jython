@@ -14,8 +14,8 @@ Details
 The Universal Algebra Calculator (UACalc) is a powerful software
 system for general algebra.  It comes with a very useful and 
 intuitive graphical user interface and can be easily run from 
-any computer with a Java runtime environment.  It is available
-at http://uacalc.org
+any computer with a Java runtime environment.  The UACalc is 
+open source software written in Java and is available at http://uacalc.org
 
 For certain tasks, working with UACalc from a command line using Python 
 syntax is more convenient than using the gui interface.
