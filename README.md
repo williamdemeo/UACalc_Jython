@@ -14,11 +14,11 @@ Details
 The Universal Algebra Calculator (UACalc) is a powerful software
 system for general algebra.  It comes with a very useful and 
 intuitive graphical user interface and can be easily run from 
-any computer with a Java runtime environment.
+any computer with a Java runtime environment.  It is available
+at http://uacalc.org
 
 For certain tasks, working with UACalc from a command line using Python 
 syntax is more convenient than using the gui interface.
-
 This repository contains files that help configure a computer for
 running the Jython interpreter, and for setting up dependencies so 
 that you can work with UACalc classes from the Jython command line.
@@ -55,8 +55,11 @@ classes.  To test this, first try something like this:
 If this produces an error, something is wrong.  
 
 If you get the >>> prompt, then it's probably working, in which case you can
-look in the file UACalc_Jython/Jython/AlgebraConstructionExample.py for some 
-examples of things you can try at the Jython >>> prompt.
+look in the file 
+
+    UACalc_Jython/Jython/AlgebraConstructionExample.py 
+
+for some examples of things you can try at the Jython >>> prompt.
 
 
 Feedback/Help
