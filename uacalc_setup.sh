@@ -1,6 +1,9 @@
 #!/bin/bash
-# Simple setup.sh for configuring Jython for use with UACalc
-# William DeMeo <williamdemeo@gmail.com>
+# This is a script that configures a Ubuntu Linux machine with
+# Jython for use with UACalc.
+#
+# Author: William DeMeo <williamdemeo@gmail.com>
+# Date: 2013.08.28
 
 
 echo
