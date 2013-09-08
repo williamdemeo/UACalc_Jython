@@ -188,14 +188,11 @@ echo
 echo
 echo 'UACalc_Jython Setup finished!!!'
 echo
-echo '   To run the Jython interpreter CL interface to uacalc, enter'
+echo '   To run the Jython interpreter CL interface to uacalc, enter the command'
 echo
 echo '       '$uacalc_name
 echo
-echo '   a the prompt in a terminal window.'
-echo
-echo '   If you get command not found, enter the fully qualified'
-echo '   name of the startup script:'
+echo '   If you get an error, try the fully qualified name of the startup script:'
 echo 
 echo '       '$uacalc_jython_path"/uacalc_jython"
 echo
