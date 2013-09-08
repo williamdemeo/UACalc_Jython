@@ -6,8 +6,11 @@ Created on Jun 23, 2013
 '''
 
 import sys
-sys.path.append("Jars/uacalc.jar")
-sys.path.append("Jars/LatDraw.jar")
+from os.path import expanduser
+home = expanduser("~")
+jars = home+"/UACalc/UACalc_Jython/Jython/Jars"
+sys.path.append(jars+"/uacalc.jar")
+sys.path.append(jars+"/LatDraw.jar")
 
 import rlcompleter
 import readline

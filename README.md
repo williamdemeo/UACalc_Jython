@@ -7,59 +7,52 @@ William DeMeo and Ralph Freese
 
 Synopsis
 --------
-Files needed for running UACalc from the command line.
+Install and setup the command line version of the Universal Algebra Calculator (UACalc).
 
 Details
 -------
-The Universal Algebra Calculator (UACalc) is a powerful software
-system for general algebra.  It comes with a very useful and 
-intuitive graphical user interface and can be easily run from 
-any computer with a Java runtime environment.  The UACalc is 
-open source software written in Java and is available at http://uacalc.org
+The Universal Algebra Calculator is a powerful software system for general algebra.  
+It comes with a useful and intuitive graphical user interface and can be easily run from 
+any computer with a Java runtime environment.  The UACalc is open source software written 
+in Java and is available at http://uacalc.org
 
-For certain tasks, working with UACalc from a command line using Python 
-syntax is more convenient than using the gui interface.
-This repository contains files that help configure a computer for
-running the Jython interpreter, and for setting up dependencies so 
-that you can work with UACalc classes from the Jython command line.
-
-(Note: it is not necessary to first install Java or run the gui version
-of UACalc in order to use it from the command line.
-The configuration script in this repository will take care of these details.)
+For certain tasks, working with UACalc from a command line using Python syntax is more 
+convenient than using the gui interface.  The files in this repository are useful for
+setting up a computer to run the Jython interpreter with the dependencies required to make use
+of UACalc Java classes from the Jython command line.
 
 Installation
 ------------
-For now, the installation is easy on Debian based Linux systems (like Ubuntu).  
-We are in the process of generalizing the simple installation script so that it 
-works on other flavors of Linux, and eventually on Macs as well.
+The setup.sh script in this repository will automatically set up everything on Ubuntu Linux.  
+If you are not using Ubuntu, you can read the comments in the setup.sh file, and do the analogous 
+steps for your platform.  (We are in the process of generalizing the setup.sh script so that it 
+works on other flavors of Linux, and eventually on Macs too.)
 
-On Ubuntu Linux (or any linux with apt-get package manager installed),
-issue the following commands in a terminal window (at the shell prompt):
+On Ubuntu Linux, there is no need to download this repository.  Simply issue the following 
+commands in a terminal window (at the shell prompt):
 
-1.  wget https://raw.github.com/williamdemeo/UACalc_Jython/master/uacalc_setup.sh
+1.  wget https://raw.github.com/UACalc/UACalc_Jython/master/setup.sh
 
-2.  chmod a+x uacalc_setup.sh
+2.  chmod a+x setup.sh
 
-3.  ./uacalc_setup.sh
+3.  ./setup.sh
 
 
 Running
 -------
-Once you have installed Jython and the UACalc dependencies, you can run the 
-Jython interpreter by entering the following in a terminal window:
+Once you have successfully run setup.sh (or followed the analogous steps for your platform),
+you can run the Jython interpreter with UACalc dependencies by typing `uacalc` at the prompt 
+in a terminal window.
 
-    uacalc_jython
-
-You should see the Jython >>> prompt and you should be able to import UACalc
-classes.  To test this, first try something like this:
+After a few seconds, you should see the Jython >>> prompt and you should be able to import 
+UACalc classes.  To test this, first try something like this:
 
     >>> from org.uacalc import alg
     >>>
 
 If this produces an error, something is wrong.  
 
-If you get the >>> prompt, then it's probably working, in which case you can
-look in the file 
+If you get the >>> prompt, then it's probably working, in which case you can look in the file 
 
     UACalc_Jython/Jython/AlgebraConstructionExample.py 
 
