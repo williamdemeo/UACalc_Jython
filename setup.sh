@@ -188,6 +188,8 @@ if [ -h "$uacalc_fqname" ]; then
 	echo "              "$uacalc_jython_path"/uacalc_jython"
 	echo
     fi
+else
+	ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
 fi
 echo
 echo
