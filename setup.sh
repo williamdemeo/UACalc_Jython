@@ -87,6 +87,7 @@ fi
 echo 
 echo "Step 2.  Installing Git and cloning UACalc_Jython GitHub repository."
 echo
+sudo apt-get update
 sudo apt-get install -y git-core
 
 # Change into $HOME/UACalc before cloning the git repo.
@@ -99,7 +100,9 @@ git clone https://github.com/UACalc/UACalc_Jython.git
 echo
 echo "         Checking for newer uacalc.jar..."
 echo
+cd $uacalc_jython_path'/Jython/Jars'
 wget -N http://uacalc.org/uacalc.jar
+cd $uacalc_path
 
 # Copy .ua algebra files from UACalc_Jython/Algebras to ~/UACalc/Algebras directory.
 # If they already exist, rename with ~ extension.
@@ -111,7 +114,7 @@ echo "            FROM  "$uacalc_jython_algebras_path
 echo
 echo "            TO    "$uacalc_algebras_path
 echo 
-echo "         Any matching .ua files will be renamed with .ua~ extension."
+echo "         Any pre-existing .ua files will be renamed with .ua~ extension."
 echo
 cp -b $uacalc_jython_algebras_path/*.ua $uacalc_algebras_path/
 
