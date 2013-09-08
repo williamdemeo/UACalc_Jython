@@ -91,7 +91,13 @@ sudo apt-get install -y git-core
 cd $uacalc_path
 git clone https://github.com/UACalc/UACalc_Jython.git
 
-# Get the latest version of uacalc.jar
+# 
+# UACalc_Jython.git repo comes with a uacalc.jar file.
+# Let's make sure it's the newest one available:
+echo
+echo "         Checking for newer uacalc.jar..."
+echo
+wget -N http://uacalc.org/uacalc.jar
 
 # Copy .ua algebra files from UACalc_Jython/Algebras to ~/UACalc/Algebras directory.
 # If they already exist, rename with ~ extension.
