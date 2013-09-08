@@ -5,7 +5,6 @@
 # Author: William DeMeo <williamdemeo@gmail.com>
 # Date: 2013.08.28
 
-
 echo
 echo 'This script will install the software and configuration files'
 echo 'necessary to use the command line version of UACalc.'
