@@ -23,12 +23,13 @@ of UACalc Java classes from the Jython command line.
 
 Installation
 ------------
-The setup.sh script in this repository will set up everything if you are using Ubuntu Linux.  
+The setup.sh script in this repository will automatically set up everything on Ubuntu Linux.  
 If you are not using Ubuntu, you can read the comments in the setup.sh file, and do the analogous 
 steps for your platform.  (We are in the process of generalizing the setup.sh script so that it 
 works on other flavors of Linux, and eventually on Macs too.)
 
-On Ubuntu Linux, issue the following commands in a terminal window (at the shell prompt):
+On Ubuntu Linux, there is no need to download this repository.  Simply issue the following 
+commands in a terminal window (at the shell prompt):
 
 1.  wget https://raw.github.com/UACalc/UACalc_Jython/master/setup.sh
 

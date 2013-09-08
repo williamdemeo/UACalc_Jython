@@ -2,7 +2,7 @@
 echo
 echo 'Starting Jython with UACalc dependencies.  Please be patient...'
 echo
-cd $HOME/UACalc_Jython/Jython
+cd $HOME/UACalc/UACalc_Jython/Jython
 
 exec java -jar jython.jar -i uacalc.py
 
