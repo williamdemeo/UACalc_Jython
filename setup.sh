@@ -2,6 +2,8 @@
 # Simple setup.sh for configuring Jython for use with UACalc
 # William DeMeo <williamdemeo@gmail.com>
 
+set -e
+
 echo
 echo 'This script will install the software and configuration files'
 echo 'necessary to use the command line version of UACalc.'
@@ -19,7 +21,7 @@ then
     echo
     echo 'Setup aborted.'
     echo
-    exit
+    exit 1
 fi
 echo
 echo
@@ -64,7 +66,7 @@ if [ -d $uacalc_algebras_path/ ]; then
 	    echo "         Aborting setup. "
 	    echo "         Please backup your "$uacalc_algebras_path" and try again."
 	    echo
-	    exit
+	    exit 1
 	fi
     fi
 else
@@ -85,6 +87,7 @@ fi
 echo 
 echo "Step 2.  Installing Git and cloning UACalc_Jython GitHub repository."
 echo
+sudo apt-get update
 sudo apt-get install -y git-core
 
 # Change into $HOME/UACalc before cloning the git repo.
@@ -97,7 +100,9 @@ git clone https://github.com/UACalc/UACalc_Jython.git
 echo
 echo "         Checking for newer uacalc.jar..."
 echo
+cd $uacalc_jython_path'/Jython/Jars'
 wget -N http://uacalc.org/uacalc.jar
+cd $uacalc_path
 
 # Copy .ua algebra files from UACalc_Jython/Algebras to ~/UACalc/Algebras directory.
 # If they already exist, rename with ~ extension.
@@ -109,7 +114,7 @@ echo "            FROM  "$uacalc_jython_algebras_path
 echo
 echo "            TO    "$uacalc_algebras_path
 echo 
-echo "         Any matching .ua files will be renamed with .ua~ extension."
+echo "         Any pre-existing .ua files will be renamed with .ua~ extension."
 echo
 cp -b $uacalc_jython_algebras_path/*.ua $uacalc_algebras_path/
 
@@ -133,7 +138,7 @@ else
 	echo 
 	echo '         Aborting setup.'
 	echo
-	exit
+	exit 1
     fi
 fi
 
@@ -155,7 +160,7 @@ if [[ "$_java" ]]; then
 	    echo '         '
 	    echo '         Aborting setup. (You need a recent version of Java to use Jython.)'
 	    echo 
-	    exit
+	    exit 1
 	fi
     fi
 fi
@@ -167,34 +172,39 @@ if [ ! -d $HOME/bin/ ]; then
     mkdir -v $HOME/bin
 fi
 uacalc_name='uacalc'
-uacalc_fqname=$HOME'/bin/'$uacalc_name
-echo '         Adding a link to startup script at '$uacalc_fqname
-if [ -h "$uacalc_fqname" ]; then
+uacalc_link=$HOME'/bin/'$uacalc_name
+uacalc_fqname=$uacalc_jython_path'/'$uacalc_name
+echo '         Adding a link to startup script at '$uacalc_link
+if [ -h "$uacalc_link" ]; then
     echo ""
-    echo "         "$uacalc_fqname" already exists."
+    echo "         "$uacalc_link" already exists."
     read -p '         Rename it? [Y/n]' -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-	mv $uacalc_fqname $uacalc_fqname'_'$(date +'%Y%m%d:%H:%m')
-	ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
+	mv $uacalc_link $uacalc_link'_'$(date +'%Y%m%d:%H:%m')
+	ln -s $uacalc_fqname $uacalc_link
     else
 	echo 
-	echo "         Okay, then "$uacalc_name" might not work, but you can always try"
-	echo "              "$uacalc_jython_path"/uacalc_jython"
+	echo "         Okay, then typing "$uacalc_name" might not work, but you can always try"
+	echo "              "$uacalc_fqname
 	echo
     fi
+else
+	ln -s $uacalc_fqname $uacalc_link
 fi
 echo
 echo
-echo 'UACalc_Jython Setup finished!!!'
+echo 'FINISHED UACalc_Jython Setup!'
 echo
-echo '   To run the Jython interpreter CL interface to uacalc, enter the command'
+echo '   To run the command line version of UACalc'
+echo '   (i.e. the Jython interpreter with UACalc dependencies)'
+echo '   enter'
 echo
-echo '       '$uacalc_name
+echo '       ~/bin/'$uacalc_name
 echo
 echo '   If you get an error, try the fully qualified name of the startup script:'
 echo 
-echo '       '$uacalc_jython_path"/uacalc_jython"
+echo '       '$uacalc_fqname
 echo
 echo '   Look at the file AlgebraConstructionExample.py for some examples'
 echo '   of Jython/UACalc code you can enter at the Jython >>> prompt.'
