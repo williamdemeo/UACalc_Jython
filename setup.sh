@@ -91,7 +91,13 @@ sudo apt-get install -y git-core
 cd $uacalc_path
 git clone https://github.com/UACalc/UACalc_Jython.git
 
-# Get the latest version of uacalc.jar
+# 
+# UACalc_Jython.git repo comes with a uacalc.jar file.
+# Let's make sure it's the newest one available:
+echo
+echo "         Checking for newer uacalc.jar..."
+echo
+wget -N http://uacalc.org/uacalc.jar
 
 # Copy .ua algebra files from UACalc_Jython/Algebras to ~/UACalc/Algebras directory.
 # If they already exist, rename with ~ extension.
@@ -182,14 +188,11 @@ echo
 echo
 echo 'UACalc_Jython Setup finished!!!'
 echo
-echo '   To run the Jython interpreter CL interface to uacalc, enter'
+echo '   To run the Jython interpreter CL interface to uacalc, enter the command'
 echo
 echo '       '$uacalc_name
 echo
-echo '   a the prompt in a terminal window.'
-echo
-echo '   If you get command not found, enter the fully qualified'
-echo '   name of the startup script:'
+echo '   If you get an error, try the fully qualified name of the startup script:'
 echo 
 echo '       '$uacalc_jython_path"/uacalc_jython"
 echo
