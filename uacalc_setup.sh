@@ -78,19 +78,8 @@ fi
 #
 uacalc_jython_path=$uacalc_path'/UACalc_Jython'
 if [ -d $uacalc_jython_path/ ]; then
-    echo '         Directory '$uacalc_jython_path' already exists...'
-    read -p '         Rename it? [Y/n]' -n 1 -r
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-	echo $(date +'%Y%m%d:%H:%m')
-	mv $uacalc_jython_path $uacalc_jython_path'_'$(date +'%Y%m%d:%H:%M')
-    else
-	echo
-	echo '         Aborting setup. '
-	echo '         Please rename '$uacalc_jython_path' and try again.'
-	echo
-	exit
-    fi
+    echo '         Directory '$uacalc_jython_path' already exists.  Renaming it...'
+    mv $uacalc_jython_path $uacalc_jython_path'_'$(date +'%Y%m%d:%H:%M')
 fi
 
 echo 
@@ -179,17 +168,17 @@ if [ -h "$uacalc_fqname" ]; then
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
 	mv $uacalc_fqname $uacalc_fqname'_'$(date +'%Y%m%d:%H:%m')
+	ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
     else
 	echo 
-	echo "         Aborting setup. (Please rename "$uacalc_fqname" and try again.)"
+	echo "         Okay, then "$uacalc_name" might not work, but you can always try"
+	echo "              "$uacalc_jython_path"/uacalc_jython"
 	echo
-	exit
     fi
 fi
-ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
 echo
 echo
-echo '   ...UACalc_Jython Setup finished!!!'
+echo 'UACalc_Jython Setup finished!!!'
 echo
 echo '   To run the Jython interpreter CL interface to uacalc, enter'
 echo
@@ -200,7 +189,7 @@ echo
 echo '   If you get command not found, enter the fully qualified'
 echo '   name of the startup script:'
 echo 
-echo '       '$uacalc_fqname
+echo '       '$uacalc_jython_path"/uacalc_jython"
 echo
 echo '   Look at the file AlgebraConstructionExample.py for some examples'
 echo '   of Jython/UACalc code you can enter at the Jython >>> prompt.'
