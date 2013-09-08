@@ -7,30 +7,28 @@ William DeMeo and Ralph Freese
 
 Synopsis
 --------
-Files needed for running UACalc from the command line.
+Install and setup the command line version of the Universal Algebra Calculator (UACalc).
 
 Details
 -------
-The Universal Algebra Calculator (UACalc) is a powerful software system for general algebra.  
-It comes with a very useful and intuitive graphical user interface and can be easily run from 
+The Universal Algebra Calculator is a powerful software system for general algebra.  
+It comes with a useful and intuitive graphical user interface and can be easily run from 
 any computer with a Java runtime environment.  The UACalc is open source software written 
 in Java and is available at http://uacalc.org
 
 For certain tasks, working with UACalc from a command line using Python syntax is more 
-convenient than using the gui interface.  The files in this Git repository are useful for
+convenient than using the gui interface.  The files in this repository are useful for
 setting up a computer to run the Jython interpreter with the dependencies required to make use
 of UACalc Java classes from the Jython command line.
 
 Installation
 ------------
-The setup.sh script in this repository will set up everything for you if you are using Ubuntu 
-Linux.  If you are not using Ubuntu, you can read the comments in the setup.sh file, which
-describes all the steps required, and do the analogous steps for your platform.  (We are in 
-the process of generalizing the setup.sh script so that it works on other flavors of Linux, 
-and eventually on Macs too.)
+The setup.sh script in this repository will set up everything if you are using Ubuntu Linux.  
+If you are not using Ubuntu, you can read the comments in the setup.sh file, and do the analogous 
+steps for your platform.  (We are in the process of generalizing the setup.sh script so that it 
+works on other flavors of Linux, and eventually on Macs too.)
 
-On Ubuntu Linux (or any linux with apt-get package manager installed),
-issue the following commands in a terminal window (at the shell prompt):
+On Ubuntu Linux, issue the following commands in a terminal window (at the shell prompt):
 
 1.  wget https://raw.github.com/UACalc/UACalc_Jython/master/setup.sh
 
