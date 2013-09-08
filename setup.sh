@@ -73,8 +73,8 @@ fi
 
 
 #
-# If the directory ~/UACalc/UACalc_Jython already exists,
-# ask if it should be renamed (otherwise setup will be aborted).
+# If the directory ~/UACalc/UACalc_Jython already exists, rename it,
+# since we'll clone the GitHub repo into that directory.
 #
 uacalc_jython_path=$uacalc_path'/UACalc_Jython'
 if [ -d $uacalc_jython_path/ ]; then
