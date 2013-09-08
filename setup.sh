@@ -2,6 +2,8 @@
 # Simple setup.sh for configuring Jython for use with UACalc
 # William DeMeo <williamdemeo@gmail.com>
 
+set -e
+
 echo
 echo 'This script will install the software and configuration files'
 echo 'necessary to use the command line version of UACalc.'
@@ -19,7 +21,7 @@ then
     echo
     echo 'Setup aborted.'
     echo
-    exit
+    exit 1
 fi
 echo
 echo
@@ -64,7 +66,7 @@ if [ -d $uacalc_algebras_path/ ]; then
 	    echo "         Aborting setup. "
 	    echo "         Please backup your "$uacalc_algebras_path" and try again."
 	    echo
-	    exit
+	    exit 1
 	fi
     fi
 else
@@ -133,7 +135,7 @@ else
 	echo 
 	echo '         Aborting setup.'
 	echo
-	exit
+	exit 1
     fi
 fi
 
@@ -155,7 +157,7 @@ if [[ "$_java" ]]; then
 	    echo '         '
 	    echo '         Aborting setup. (You need a recent version of Java to use Jython.)'
 	    echo 
-	    exit
+	    exit 1
 	fi
     fi
 fi
