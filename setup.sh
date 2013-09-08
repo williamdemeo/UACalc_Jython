@@ -172,36 +172,39 @@ if [ ! -d $HOME/bin/ ]; then
     mkdir -v $HOME/bin
 fi
 uacalc_name='uacalc'
-uacalc_fqname=$HOME'/bin/'$uacalc_name
-echo '         Adding a link to startup script at '$uacalc_fqname
-if [ -h "$uacalc_fqname" ]; then
+uacalc_link=$HOME'/bin/'$uacalc_name
+uacalc_fqname=$uacalc_jython_path'/'$uacalc_name
+echo '         Adding a link to startup script at '$uacalc_link
+if [ -h "$uacalc_link" ]; then
     echo ""
-    echo "         "$uacalc_fqname" already exists."
+    echo "         "$uacalc_link" already exists."
     read -p '         Rename it? [Y/n]' -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-	mv $uacalc_fqname $uacalc_fqname'_'$(date +'%Y%m%d:%H:%m')
-	ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
+	mv $uacalc_link $uacalc_link'_'$(date +'%Y%m%d:%H:%m')
+	ln -s $uacalc_fqname $uacalc_link
     else
 	echo 
-	echo "         Okay, then "$uacalc_name" might not work, but you can always try"
-	echo "              "$uacalc_jython_path"/uacalc_jython"
+	echo "         Okay, then typing "$uacalc_name" might not work, but you can always try"
+	echo "              "$uacalc_fqname
 	echo
     fi
 else
-	ln -s $uacalc_jython_path/uacalc_jython $uacalc_fqname
+	ln -s $uacalc_fqname $uacalc_link
 fi
 echo
 echo
-echo 'UACalc_Jython Setup finished!!!'
+echo 'FINISHED UACalc_Jython Setup!'
 echo
-echo '   To run the Jython interpreter CL interface to uacalc, enter the command'
+echo '   To run the command line version of UACalc'
+echo '   (i.e. the Jython interpreter with UACalc dependencies)'
+echo '   enter'
 echo
-echo '       '$uacalc_name
+echo '       ~/bin/'$uacalc_name
 echo
 echo '   If you get an error, try the fully qualified name of the startup script:'
 echo 
-echo '       '$uacalc_jython_path"/uacalc_jython"
+echo '       '$uacalc_fqname
 echo
 echo '   Look at the file AlgebraConstructionExample.py for some examples'
 echo '   of Jython/UACalc code you can enter at the Jython >>> prompt.'
