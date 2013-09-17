@@ -63,6 +63,3 @@ Feedback/Help
 -------------
 Please send us feedback, or ask for help, especially if the installation script 
 in this repo does not work on your system.
-
-
-test2
