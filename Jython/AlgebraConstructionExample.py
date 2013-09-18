@@ -5,8 +5,10 @@ Assuming you have Jython installed, this script can be run from the command line
      jython AlgebraConstructionExample.py
      
 Created on Jun 18, 2013
+Updated on Sep 18, 2013
+
 @see: OperationFactory.py
-@author: williamdemeo at gmail
+@author: williamdemeo@gmail.com and ralph@math.hawaii.edu
 '''
 
 from OperationFactory import Operation
@@ -114,7 +116,7 @@ print "\nFor example, suppose we read in Polin's algebra from the file polin.ua,
 P = AlgebraIO.readAlgebraFile("../../Algebras/polin.ua")
 
 print "and suppose we then construct an algebra that is the congruence lattice of P (using the convenient"
-print "and fast UACalc method con()), and call this algebra conP."
+print "and fast UACalc con() method), and call this algebra conP."
 conP = BasicLattice("conP", P.con(), 0)
 
 print "\nWe can print the universe of conP with"
