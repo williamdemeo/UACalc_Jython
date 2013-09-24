@@ -5,16 +5,21 @@ Assuming you have Jython installed, this script can be run from the command line
      jython AlgebraConstructionExample.py
      
 Created on Jun 18, 2013
+Updated on Sep 18, 2013
+
 @see: OperationFactory.py
-@author: williamdemeo at gmail
+@author: williamdemeo@gmail.com and ralph@math.hawaii.edu
 '''
 
 from OperationFactory import Operation
 from org.uacalc.alg import BasicAlgebra
 from org.uacalc.io import AlgebraIO
+from org.uacalc.lat import BasicLattice
 
-'''Example 1: Constructing an algebra with operations defined using a Python function.'''
-print "---- Example 1 ----"
+
+print "\n---- Example 1 ----"
+print "Constructing an algebra with operations defined using a Python function."
+
 # define a function
 def plus_mod5(args):
     result = 0
@@ -50,8 +55,8 @@ if os.path.exists("../Algebras"):
 
 
 
-'''Example 2: Constructing an algebra with unary operations defined "by hand" as vectors.'''
-print "\n---- Example 2 ----"
+print "\n\n---- Example 2 ----"
+print "Constructing an algebra with unary operations defined 'by hand' as vectors."
 
 # The algebra will have universe {0, 1, ..., 7}, and the following unary operations: 
 f0 = 7,6,6,7,3,2,2,3
@@ -92,8 +97,48 @@ print "\nQuick check that we constructed an algebra:"
 print "   alg.getName() = ", alg.getName()        
 print "   alg.universe() = ", alg.universe()
 
-if os.path.exists("../Algebras"):
+if os.path.exists("../../Algebras"):
 
     # Optionally, write the algebra to a UACalc file that can be loaded into the gui.
-    AlgebraIO.writeAlgebraFile(alg, "../Algebras/Example2_MutliunaryAlgebra.ua")
-    print "UACalc algebra file created: ../Algebras/Example2_MutliunaryAlgebra.ua"
+    AlgebraIO.writeAlgebraFile(alg, "../../Algebras/Example2_MutliunaryAlgebra.ua")
+    print "UACalc algebra file created: ../../Algebras/Example2_MutliunaryAlgebra.ua"
+    
+    
+
+print "\n\n---- Example 3 ----"
+print "The congruence lattice of a congruence lattice."
+print "\nThe congruence lattice Con(A) of the algebra A is itself an algebra (specifically, a lattice)."
+print "We represent it in UACalc as an object of the class BasicLattice.  UACalc represents the" 
+print "universe of an algebra of cardinality n with integers {0, 1, ..., n-1}, and in some cases"
+print "it is important to know to what elements these integers correspond."
+
+print "\nFor example, suppose we read in Polin's algebra from the file polin.ua, and name this algebra P,"
+P = AlgebraIO.readAlgebraFile("../../Algebras/polin.ua")
+
+print "and suppose we then construct an algebra that is the congruence lattice of P (using the convenient"
+print "and fast UACalc con() method), and call this algebra conP."
+conP = BasicLattice("conP", P.con(), 0)
+
+print "\nWe can print the universe of conP with"
+print "\n    conP.universe(): ", conP.universe()
+
+print "\nNow suppose we want the congruence lattice of the algebra conP.  "
+print "\n    conP.con().universe() gives ", conP.con().universe()
+
+print "\nTo make use of this result, we must know to which elements of conP.universe() the"
+print "integers appearing in the blocks of conP.con().universe() correspond."
+
+n = conP.cardinality()
+print "\nThe elements in the universe of conP happen to be labeled in UACalc as follows:"
+print "\n    ( k, conP.getElement(k) ):\n   ",
+for k in range(n):
+    print "( "+str(k)+",", conP.getElement(k), "), ",
+
+print "\n\nPrinting the universe of conP..."
+print "   ...with conP.universe():", conP.universe(), "   (lists elements in arbitrary order)"
+print "   ...with conP.getUniverseList():", conP.getUniverseList(), "   (lists elements in correct order)"
+
+print "\nSo, when you want to know how UACalc is labelling the elements,"
+print "use either getUniverseList() or getElement(k), instead of universe()."
+
+    
