@@ -1,6 +1,13 @@
 UACalc_Jython
 =============
 
+THIS REPOSITORY IS DEPRECATED.  IT IS SUPERSEDED BY 
+
+    UACalc/UACalc 
+
+which is available at https://github.com/UACalc/UACalc.
+
+
 Authors
 -------
 William DeMeo and Ralph Freese
